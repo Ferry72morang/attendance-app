@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+  <mat-card class="login-card mat-elevation-z8">
+    <div class="login-header">
+      <mat-icon class="login-icon">lock</mat-icon>
+      <h2>Welcome Back</h2>
+      <p>Please login to your account</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput formControlName="userName" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full-width" type="submit" [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+      <mat-error *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </mat-error>
+    </form>
+  </mat-card>
+</div>
