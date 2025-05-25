@@ -10,7 +10,7 @@ export class AttendanceComponent {
   userId: number | null = null;
   attendanceList: any[] = []; 
   error: string = '';
-  displayedColumns: string[] = ['userId', 'username', 'tapIn', 'tapOut'];
+  displayedColumns: string[] = ['userId', 'userName', 'tapIn', 'tapOut'];
 
   constructor(private http: HttpClient) {}
 

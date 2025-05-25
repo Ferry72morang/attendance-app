@@ -27,7 +27,7 @@ export interface PageResponse<T> {
 })
 export class UserComponent {
   searchTerm = '';
-  displayedColumns: string[] = ['no', 'userName', 'name', 'role', 'edit', 'delete'];
+  displayedColumns: string[] = ['no', 'userName', 'name', 'role', 'actions'];
   dataSource = new MatTableDataSource<UserDto>([]);
   pageIndex = 0;
   pageSize = 10;
@@ -40,7 +40,7 @@ export class UserComponent {
   ) {}
 
   ngOnInit() {
-    this.searchUsers();
+    // this.searchUsers();
   }
 
   searchUsers() {

@@ -1,12 +1,15 @@
-<mat-form-field appearance="outline">
-  <mat-label>Find User</mat-label>
-  <input matInput [(ngModel)]="searchTerm" (keyup.enter)="searchUsers()" />
-</mat-form-field>
+<!-- Search Bar -->
+<div class="search-bar" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+  <mat-form-field appearance="outline" style="flex: 1;">
+    <mat-label>Find User</mat-label>
+    <input matInput [(ngModel)]="searchTerm" (keyup.enter)="searchUsers()" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchUsers()">Cari</button>
+</div>
 
-<button mat-raised-button color="primary" (click)="searchUsers()">Cari</button>
-
+<!-- Data Table -->
 <div *ngIf="dataSource?.data?.length">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%; margin-top: 20px;">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%;">
 
     <!-- No -->
     <ng-container matColumnDef="no">
@@ -34,32 +37,39 @@
       <td mat-cell *matCellDef="let row">{{ row.role }}</td>
     </ng-container>
 
-    <!-- Edit -->
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;">Action</th>
       <td mat-cell *matCellDef="let row">
-        <button mat-button color="primary" (click)="openEditDialog(row)">Edit</button>
+        <div style="display: flex; justify-content: center; gap: 8px;">
+          <button mat-stroked-button color="primary" (click)="openEditDialog(row)">
+            <mat-icon>edit</mat-icon>
+            Edit
+          </button>
+          <button mat-stroked-button color="warn" (click)="deleteUser(row.id)">
+            <mat-icon>delete</mat-icon>
+            Hapus
+          </button>
+        </div>
       </td>
     </ng-container>
 
-    <!-- Delete -->
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef>Hapus</th>
-      <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="warn" (click)="deleteUser(row.id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
 
+    <!-- Rows -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
+  <!-- Paginator -->
   <mat-paginator [length]="totalElements"
                  [pageSize]="pageSize"
                  [pageIndex]="pageIndex"
                  [pageSizeOptions]="[5, 10, 20]"
                  (page)="onPageChange($event)">
   </mat-paginator>
+</div>
+
+<!-- Optional: Show message if no data -->
+<div *ngIf="dataSource && !dataSource.data.length" class="empty-state">
+  <p style="text-align:center; margin-top: 20px; color: gray;">Data tidak ditemukan</p>
 </div>
