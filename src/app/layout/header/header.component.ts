@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // <-- Tambahkan ini
+// src/app/layout/header/header.component.ts
+import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
-
-  constructor(private router: Router) { } // <-- Inject di sini
-
-  ngOnInit(): void {}
+export class HeaderComponent {
+  constructor(private authService: AuthService, private router: Router) {}
 
   logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']); // <--- Sesuaikan path jika perlu
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

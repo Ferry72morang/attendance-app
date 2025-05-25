@@ -23,6 +23,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AuthInterceptor } from './core/auth.interceptor';
+import { RegisterComponent } from './register/register.component';
+import { MatSelectModule } from '@angular/material/select';
+import { UserComponent } from './user/user.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ConfirmDialogComponent } from './confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +39,11 @@ import { AuthInterceptor } from './core/auth.interceptor';
     LayoutComponent,
     HeaderComponent,
     SidebarComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    RegisterComponent,
+    UserComponent,
+    ConfirmDialogComponent,
+    EditUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +60,11 @@ import { AuthInterceptor } from './core/auth.interceptor';
     MatTableModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
    providers: [
     {
