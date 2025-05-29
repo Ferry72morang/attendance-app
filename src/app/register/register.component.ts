@@ -14,6 +14,7 @@ export class RegisterComponent {
     name: ['', Validators.required],
     designation: ['', Validators.required],
     role: ['', Validators.required],
+    status: ['', Validators.required],
     password: ['', Validators.required]
   });
 

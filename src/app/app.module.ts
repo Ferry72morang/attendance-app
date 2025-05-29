@@ -31,6 +31,7 @@ import { ConfirmDialogComponent } from './confirm-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { EditUserDialogComponent } from './edit-user-dialog/edit-user-dialog.com
     MatSelectModule,
     MatPaginatorModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
   ],
    providers: [
     {

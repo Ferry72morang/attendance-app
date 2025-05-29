@@ -26,6 +26,13 @@
         </mat-select>
       </mat-form-field>
 
+      
+      <label>Status</label>
+      <mat-radio-group formControlName="status" class="d-block mb-3" required>
+      <mat-radio-button value="INTERNAL">INTERNAL</mat-radio-button>
+      <mat-radio-button value="EXTERNAL" class="ml-3">EXTERNAL</mat-radio-button>
+      </mat-radio-group>
+
      <mat-form-field appearance="outline">
         <mat-label>Password (number only)</mat-label>
         <input
